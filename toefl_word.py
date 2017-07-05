@@ -1,6 +1,6 @@
 import random
 def main():
-	word_list, answer_list, word_dict = [], [], {}
+	word_list, answer_list, word_dict, wrong_list = [], [], {}, []
 	with open('word.db') as f:
 		for line in f.readlines():
 			line_list = line.strip().split()
@@ -28,7 +28,10 @@ def main():
 				print 'Correct'
 			else:
 				print "Wrong, answer is: ", word_dict[pick_one]
-
+				wrong_list.append(pick_one)
+	with open('wrong_note.db', 'a') as f:
+		to_write = [w + ' ' + word_dict[w] + '\n' for w in wrong_list]
+		f.writelines(to_write)
 
 if __name__ == '__main__':
 	main()
