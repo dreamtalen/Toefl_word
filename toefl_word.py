@@ -23,7 +23,10 @@ def main():
 			choice_list.append(word_dict[pick_one])
 			random.shuffle(choice_list)
 			print choice_list
-			user_answer = input('Answer?')
+			try:
+				user_answer = input('Answer?')
+			except:
+				user_answer = input('Input error, Answer?')
 			if choice_list[user_answer-1] == word_dict[pick_one]:
 				print 'Correct'
 			else:
