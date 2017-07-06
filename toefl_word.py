@@ -18,15 +18,15 @@ def main():
 		if user_input == 'q': flag = 0
 		else:
 			pick_one = random.choice(word_list)
-			print pick_one
+			print '>>> '+pick_one
 			choice_list = random.sample(answer_list, 3)
 			choice_list.append(word_dict[pick_one])
 			random.shuffle(choice_list)
 			print choice_list
 			try:
-				user_answer = input('Answer?')
+				user_answer = input('>>> Answer?')
 			except:
-				user_answer = input('Input error, Answer?')
+				user_answer = input('>>> Input error, Answer?')
 			if choice_list[user_answer-1] == word_dict[pick_one]:
 				print 'Correct'
 			else:
